@@ -29,7 +29,7 @@ def eval_step_beam(test_state, key, bwd_action_perms, fwd_action_perms, model, t
 
     return {
         "avg_length": sum_len.mean(),
-        "solve_rate": (sum_len < params['eval_max_length']).mean(), 
+        "solve_rate": (sum_len < params['eval_max_length'] + 1).mean(), 
     }
 
 
@@ -140,4 +140,3 @@ if __name__ == '__main__':
         test_set,
         params
     )
-    
