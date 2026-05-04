@@ -11,7 +11,7 @@ Nikita Morozov, Ian Maksimov, Daniil Tiapkin, Sergey Samsonov.
 Example of training a model to solve 2x2x2 Rubik’s Cube:
 
 ```
-python train.py --reg_coef 0.01 --hidden_size 1024 --eval_batch_size 100 --use_test_set 1 --test_set_path datasets/rubik2_test.npy --task rubik2 --eval_max_length 100 --beam_k 64 --batch_size 128 --train_steps 510000 --random_trajlen 12 --print_every 50000 --save_path model.eqx
+python train.py --reg_coef 0.01 --hidden_size 1024 --eval_batch_size 100 --use_test_set 1 --test_set_path datasets/rubik2_test.npy --task rubik2 --eval_max_length 100 --beam_k 256 --batch_size 128 --train_steps 510000 --random_trajlen 12 --print_every 50000 --save_path model.eqx
 ```
 
 Evaluating a pre-trained model:
