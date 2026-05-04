@@ -1,0 +1,6 @@
+argparse
+frozendict
+scipy
+jax
+equinox
+optax
