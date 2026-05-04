@@ -610,7 +610,6 @@ if __name__ == '__main__':
         true_log_z = float(jnp.log(43252003274489856000.0))
     elif args.task == "swap":
         true_log_z = scipy.special.gammaln(args.n+1)
-    print(true_log_z)
         
     params = frozendict({
         'n': len(raw_actions[0]),
