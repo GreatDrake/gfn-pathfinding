@@ -1,4 +1,4 @@
-from uai_train import *
+from train import *
 
 parser = argparse.ArgumentParser()
 
