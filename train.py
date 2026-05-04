@@ -390,7 +390,7 @@ def eval_step_beam(key, bwd_action_perms, fwd_action_perms, model, test_set, par
 
     return {
         "avg_length": sum_len.mean(),
-        "solve_rate": (sum_len < params['eval_max_length']).mean(), 
+        "solve_rate": (sum_len < params['eval_max_length'] + 1).mean(), 
     }
 
 
@@ -429,14 +429,9 @@ def eval_step(train_iter, key, bwd_action_perms, fwd_action_perms, model, test_s
     topk_sum_len = [sum_len[idx * params['eval_batch_size']: (idx+1) * params['eval_batch_size']] for idx in range(topk)]
     topk_sum_len = jnp.stack(topk_sum_len).min(axis=0)
     
-    #sf = goal_state(params)[None, :]
-    #logits_sf = jax.vmap(model)(sf)
-    #log_pbs_sf, log_pfs_sf, log_flows_sf = process_logits(sf, logits_sf, bwd_action_perms, fwd_action_perms, params)
-    
     return {
         "avg_length": topk_sum_len.mean(), 
-        "solve_rate": done.mean(), 
-        #"log_z_error": jnp.abs(log_flows_sf[0] - params['true_log_z'])
+        "solve_rate": (topk_sum_len < params['eval_max_length'] + 1).mean(), 
     }
 
     
@@ -644,4 +639,5 @@ if __name__ == '__main__':
         test_set,
         params
     )
+    
     
