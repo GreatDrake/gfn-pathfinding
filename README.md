@@ -4,6 +4,8 @@ Official code for the paper [Learning Shortest Paths with Generative Flow Networ
 
 Nikita Morozov, Ian Maksimov, Daniil Tiapkin, Sergey Samsonov.
 
+<img align="middle" width="80%" src="figures/viz.png">
+
 ## Rubik’s Cubes
 
 ### 2x2x2 Rubik’s Cube
